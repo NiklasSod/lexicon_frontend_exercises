@@ -1,0 +1,55 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.garage {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  justify-content: center;
+}
+
+.heading {
+  
+  text-align: center;
+  color: #31aaeb;
+}
+
+.cars {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 5px;
+  background-color: #7a6e6c;
+}
+
+.car {
+  position: relative;
+  width: 99px;
+  height: 40px;
+  background-color: blue;
+  margin-bottom: 12px;
+  border-top-right-radius: 75%;
+  border: 2px solid black;
+}
+
+.car::before, /* wheels */
+.car::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  width: 24px;
+  height: 24px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.car::before { /* wheels */
+  left: 6px;
+}
+
+.car::after { /* wheels */
+  right: 6px;
+}

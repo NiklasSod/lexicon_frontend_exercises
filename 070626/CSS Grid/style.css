@@ -1,0 +1,111 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --car-box-radius: 8px;
+  --color-grey: #7a6e6c;
+}
+
+.parking {
+  max-width: 800px;
+  justify-content: center;
+}
+
+.heading {
+  color: purple;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(60px, 200px) minmax(150px, auto) minmax(60px, 200px);
+  grid-template-rows: repeat(3, 200px);
+  grid-row-gap: 1rem;
+  align-items: center;
+  justify-content: stretch;
+  border: 4px solid grey;
+  background-color: #615d5c;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.carstyle {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid yellow;
+  border-radius: var(--car-box-radius);
+  background-color: var(--color-grey);
+}
+
+.top-left-car {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.left-car {
+  grid-column: 1;
+  grid-row: 2;
+  width: 100%;
+  height: 100%;
+}
+
+.bottom-left-car {
+  grid-column: 1;
+  grid-row: 3;
+  width: 100%;
+  height: 100%;
+}
+
+.top-right-taxi {
+  grid-column: 3;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--car-box-radius);
+}
+
+.bottom-right-limo {
+  grid-column: 3;
+  grid-row: 2 / span 2;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--car-box-radius);
+}
+
+.road {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  width: 90%;
+  height: 100%;
+  background-color: black;
+  margin: auto;
+  background-image: 
+    linear-gradient(to bottom, white 15px, transparent 15px),
+    linear-gradient(to bottom, white 15px, transparent 15px);
+  background-size: 4px 20px; 
+  background-position: left center, right center; 
+  background-repeat: repeat-y;
+}
+
+.road-text {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  gap: 8px;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  color: white;
+}
+
+.purple {
+  background-color: purple;
+}
