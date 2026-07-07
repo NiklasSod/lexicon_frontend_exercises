@@ -33,7 +33,7 @@ body {
 
 /* LEDTRÅD TILL ELEVERNA: Kontrollera avståndet/klickytan här för Lighthouse! */
 .menu-links a {
-    color: #94a3b8;
+    color: #c5ccd7;
     text-decoration: none;
     font-weight: bold;
 }
@@ -67,13 +67,12 @@ body {
 }
 
 .info-sidebar {
-    flex: 1; /* Tar upp mindre plats */
+    flex: 1;
     background-color: #1e293b;
     padding: 1.5rem;
     border-radius: 8px;
     
-    /* LEDTRÅD TILL ELEVERNA: Kontrasten på denna text är alldeles för svag! */
-    color: #475569; 
+    color: #c5ccd7; 
     border: 1px solid #334155;
 }
 
