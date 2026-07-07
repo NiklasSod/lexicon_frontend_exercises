@@ -6,7 +6,8 @@
         name="description" 
         content="Live vy av parkeringsgarage med information om tillgängliga platser och priser."
     >
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>Parkeringsgarage - SmartParking Live</title>
 </head>
 <body>
@@ -26,15 +27,42 @@
             <p>Klicka på en ruta för att se detaljer.</p>
             
             <div class="floor-layout">
-                <div class="spot">🚗</div>
-                <div class="spot">🚗</div>
-                <div class="spot"></div> <div class="spot">🚗</div>
+                <button 
+                    class="spot" 
+                    onclick="updateSpot(0, 1)" 
+                    aria-label="Car parked"
+                    aria-describedby="click-action-take">
+                    🚗
+                </button>
+                <button 
+                    class="spot" 
+                    onclick="updateSpot(1, 1)" 
+                    aria-label="Car parked"
+                    aria-describedby="click-action-take">
+                    🚗
+                </button>
+                <button 
+                    class="spot" 
+                    onclick="updateSpot(2, 0)" 
+                    aria-label="Spot is free" 
+                    aria-describedby="sidebar-rates click-action-park">
+                </button>
+                <button 
+                    class="spot" 
+                    onclick="updateSpot(3, 1)" 
+                    aria-label="Car parked"
+                    aria-describedby="click-action-take">
+                    🚗
+                </button>
+
+                <span id="click-action-park" class="sr-only">Click to park</span>
+                <span id="click-action-take" class="sr-only">Click to take car</span>
             </div>
         </div>
 
         <div class="info-sidebar">
-            <h2>Priser och Regler</h2>
-            <p>Standardtaxa: 20kr/h. Orangea streckade linjer visar zongränsen.</p>
+            <h2>Rates and Rules</h2>
+            <p id="sidebar-rates">Standard rate: $2 per hour. Orange dashed lines indicate the zone boundary.</p>
         </div>
 
     </main>
