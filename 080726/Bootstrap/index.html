@@ -20,19 +20,19 @@
       <title>Garage platform A - Status</title>
   </head>
   <body>
+
+    <!-- HEADER -->
+    <header id="header-section">
+      <div class="navbar navbar-dark bg-dark px-3">
+        <span class="navbar-brand mb-0 p ps-2">SmartParking Admin</span>
+      </div>
+    </header>
+
     <div class="container-fluid p-0 m-0">
-
-      <!-- HEADER -->
-      <header id="header-section">
-        <div class="navbar navbar-dark bg-dark px-3">
-          <span class="navbar-brand mb-0 p ps-2">SmartParking Admin</span>
-        </div>
-      </header>
-
-      <div class="d-flex flex-row" style="height: calc(100vh - 56px);">
+      <div class="d-flex flex-row"">
 
         <!-- SIDEBAR -->
-        <nav class="d-flex flex-column h-100 flex-shrink-0 bg-light border-end" id="sidebar">
+        <nav class="d-flex flex-column flex-shrink-0 bg-light border-end" style="min-height: calc(100vh - 56px);" id="sidebar">
           <ul class="nav nav-pills flex-column mb-auto p-3 alignment-responsive">
             
             <li class="nav-item">
@@ -59,7 +59,8 @@
           </ul>
         </nav>
 
-        <main class="flex-grow-1 bg-white h-100 position-relative">
+        <!-- MAIN -->
+        <main class="d-flex flex-column flex-grow-1 bg-white">
           <h1 class="p-2" id="page-title">Garage platform A - Status</h1>
 
           <!-- CARD ROW -->
@@ -142,7 +143,7 @@
           </div>
 
           <!-- FOOTER -->
-          <footer class="position-absolute bottom-0 w-100 border-top text-center text-bg-dark text-white p-2">
+          <footer class="mt-auto w-100 border-top text-center text-bg-dark text-white p-2">
             <small>© 2026 SmartParking AB - Internal control</small>
           </footer>
         </main>
