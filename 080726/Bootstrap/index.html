@@ -21,6 +21,8 @@
   </head>
   <body>
     <div class="container-fluid p-0 m-0">
+
+      <!-- HEADER -->
       <header id="header-section">
         <div class="navbar navbar-dark bg-dark px-3">
           <span class="navbar-brand mb-0 p ps-2">SmartParking Admin</span>
@@ -28,6 +30,8 @@
       </header>
 
       <div class="d-flex flex-row" style="height: calc(100vh - 56px);">
+
+        <!-- SIDEBAR -->
         <nav class="d-flex flex-column h-100 flex-shrink-0 bg-light border-end" id="sidebar">
           <ul class="nav nav-pills flex-column mb-auto p-3 alignment-responsive">
             
@@ -58,32 +62,91 @@
         <main class="flex-grow-1 bg-white h-100 position-relative">
           <h1 class="p-2" id="page-title">Garage platform A - Status</h1>
 
-          <div class="row g-3 p-1">
+          <!-- CARD ROW -->
+          <div class="row g-3 mx-0 mt-1">
             <div class="col-12 col-md-4">
-              <div class="card border-0 border-start border-success border-4 shadow-sm p-3 h-100">
-                <small class="text-muted text-uppercase fw-bold text-xs" id="card-text">Revenue today</small>
-                <h2 class="mb-0" id="card-value">$450</h2>
+              <div class="card border-0 border-bottom border-secondary-subtle shadow-sm h-100 position-relative overflow-hidden">
+                <div class="card border-0 border-start border-success border-4 shadow-sm p-3 h-100">
+                  <small class="text-muted text-uppercase fw-bold text-xs" id="card-text">Revenue today</small>
+                  <h2 class="mb-0" id="card-value">$450</h2>
+                </div>
               </div>
             </div>
 
             <div class="col-12 col-md-4">
-              <div class="card border-0 border-start border-primary border-4 shadow-sm p-3 h-100">
-                <small class="text-muted text-uppercase fw-bold text-xs" id="card-text">Current occupancy</small>
-                <h2 class="mb-0" id="card-value">87%</h2>
+              <div class="card border-0 border-bottom border-secondary-subtle shadow-sm h-100 position-relative overflow-hidden">
+                <div class="card border-0 border-start border-primary border-4 shadow-sm p-3 h-100">
+                  <small class="text-muted text-uppercase fw-bold text-xs" id="card-text">Current occupancy</small>
+                  <h2 class="mb-0" id="card-value">87%</h2>
+                </div>
               </div>
             </div>
 
             <div class="col-12 col-md-4">
-              <div class="card border-0 border-start border-danger border-4 shadow-sm p-3 h-100">
-                <small class="text-muted text-uppercase fw-bold text-xs" id="card-text">Faulty parking spot</small>
-                <div class="d-flex justify-content-between align-items-center">
-                  <h2 class="mb-0" id="card-value">1 st</h2>
-                  <button class="badge animate-blink" id="btn-action-required" aria-label="Action required">Action required</button>
+              <div class="card border-0 border-bottom border-secondary-subtle shadow-sm h-100 position-relative overflow-hidden">
+                <div class="card border-0 border-start border-danger border-4 shadow-sm p-3 h-100">
+                  <small class="text-muted text-uppercase fw-bold text-xs" id="card-text">Faulty parking spot</small>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="mb-0" id="card-value">1 st</h2>
+                    <button class="badge animate-blink" id="btn-action-required" aria-label="Action required">Action required</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- TABLE -->
+          <div class="card shadow-sm p-1 border-0">
+            <table class="table table-striped align-middle">
+              <thead>
+                <tr>
+                  <th>Reg-nr</th>
+                  <th>Time (In)</th>
+                  <th>Spot</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-bold">ABC-123</td>
+                  <td>14:22</td>
+                  <td>Spot 04</td>
+                  <!-- TODO ADD "BUTTON" -->
+                  <td></td> 
+                </tr>
+                <tr>
+                  <td class="fw-bold">XYZ-987</td>
+                  <td>14:05</td>
+                  <td>Spot 19</td>
+                  <!-- TODO ADD "BUTTON" -->
+                  <td></td> 
+                </tr>
+                <tr>
+                  <td class="fw-bold">KML-442</td>
+                  <td>13:58</td>
+                  <td>Spot 12</td>
+                  <!-- TODO ADD "BUTTON" -->
+                  <td></td> 
+                </tr>
+                <tr>
+                  <td class="fw-bold">LZX-757</td>
+                  <td>11:23</td>
+                  <td>Spot 11</td>
+                  <!-- TODO ADD "BUTTON" -->
+                  <td></td> 
+                </tr>
+                <tr>
+                  <td class="fw-bold">ULL-147</td>
+                  <td>10:57</td>
+                  <td>Spot 01</td>
+                  <!-- TODO ADD "BUTTON" -->
+                  <td></td> 
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- FOOTER -->
           <footer class="position-absolute bottom-0 w-100 border-top text-center text-muted text-bg-dark text-white p-2">
             <small>© 2026 SmartParking AB - Internal control</small>
           </footer>
