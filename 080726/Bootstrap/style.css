@@ -30,10 +30,22 @@
 
 #btn-action-required {
   font-size: 0.75rem;
-  padding: 0.1rem 0.2rem;
+  padding: 0.2rem 0.3rem;
   border-radius: 0.25rem;
+  border: none;
   background-color: #9e1926;
   color: white;
+  margin: 0;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.animate-blink {
+  animation: blink 1.5s infinite;
 }
 
 @media (max-width: 768px) {
