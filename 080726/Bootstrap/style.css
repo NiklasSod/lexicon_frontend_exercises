@@ -1,15 +1,39 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 #sidebar {
-  width: 4.5rem;
+  width: 240px;
   transition: width 0.2s ease-in-out;
 }
 
+#sidebar-icon {
+  display: none;
+}
+
 #page-title {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin: 0;
   padding: 1rem;
   border-bottom: 1px solid #dee2e6;
   margin: 0 0.5rem;
+}
+
+#card-text {
+  font-size: 0.75rem;
+}
+
+#card-value {
+  font-size: 1rem;
+}
+
+#btn-action-required {
+  font-size: 0.75rem;
+  padding: 0.1rem 0.2rem;
+  border-radius: 0.25rem;
+  background-color: #9e1926;
+  color: white;
 }
 
 @media (max-width: 768px) {
@@ -20,13 +44,13 @@
   #sidebar .nav-link {
     padding: 0.5rem 0;
   }
-}
-
-@media (min-width: 768px) {
-  #sidebar {
-    width: 280px;
-  }
   #page-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+  }
+  #sidebar {
+    width: 4.5rem;
+  }
+  #sidebar-icon {
+    display: inline-block;
   }
 }

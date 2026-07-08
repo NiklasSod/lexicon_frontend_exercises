@@ -33,21 +33,21 @@
             
             <li class="nav-item">
               <a href="#" class="nav-link active d-flex align-items-center justify-content-md-start justify-content-center" aria-label="Overview">
-                <i class="bi bi-speedometer2 fs-4 me-0 me-md-2"></i>
+                <i class="bi bi-speedometer2 fs-4 me-0 me-md-2" id="sidebar-icon"></i>
                 <span class="d-none d-md-inline">Overview (Dashboard)</span>
               </a>
             </li>
             
             <li class="nav-item">
               <a href="#" class="nav-link link-dark d-flex align-items-center justify-content-md-start justify-content-center" aria-label="Camera Views">
-                <i class="bi bi-camera-video fs-4 me-0 me-md-2"></i>
+                <i class="bi bi-camera-video fs-4 me-0 me-md-2" id="sidebar-icon"></i>
                 <span class="d-none d-md-inline">Camera Views</span>
               </a>
             </li>
             
             <li class="nav-item">
               <a href="#" class="nav-link link-dark d-flex align-items-center justify-content-md-start justify-content-center" aria-label="Pricing Settings">
-                <i class="bi bi-currency-dollar fs-4 me-0 me-md-2"></i>
+                <i class="bi bi-currency-dollar fs-4 me-0 me-md-2" id="sidebar-icon"></i>
                 <span class="d-none d-md-inline">Pricing Settings</span>
               </a>
             </li>
@@ -58,25 +58,28 @@
         <main class="flex-grow-1 bg-white h-100 position-relative">
           <h1 class="p-2" id="page-title">Garage platform A - Status</h1>
 
-          <div class="row g-3">
+          <div class="row g-3 p-1">
             <div class="col-12 col-md-4">
-              <div class="card p-3 shadow-sm">
-                <h5>Revenue today</h5>
-                <p class="display-6">$450</p>
+              <div class="card border-0 border-start border-success border-4 shadow-sm p-3 h-100">
+                <small class="text-muted text-uppercase fw-bold text-xs" id="card-text">Revenue today</small>
+                <h2 class="mb-0" id="card-value">$450</h2>
               </div>
             </div>
 
             <div class="col-12 col-md-4">
-              <div class="card p-3 shadow-sm">
-                <h5>Current occupancy</h5>
-                <p class="display-6">87%</p>
+              <div class="card border-0 border-start border-primary border-4 shadow-sm p-3 h-100">
+                <small class="text-muted text-uppercase fw-bold text-xs" id="card-text">Current occupancy</small>
+                <h2 class="mb-0" id="card-value">87%</h2>
               </div>
             </div>
 
             <div class="col-12 col-md-4">
-              <div class="card p-3 shadow-sm">
-                <h5>Faulty parking spot</h5>
-                <p class="display-6">1 st</p>
+              <div class="card border-0 border-start border-danger border-4 shadow-sm p-3 h-100">
+                <small class="text-muted text-uppercase fw-bold text-xs" id="card-text">Faulty parking spot</small>
+                <div class="d-flex justify-content-between align-items-center">
+                  <h2 class="mb-0" id="card-value">1 st</h2>
+                  <button class="btn btn-sm" id="btn-action-required">Action required</button>
+                </div>
               </div>
             </div>
           </div>
