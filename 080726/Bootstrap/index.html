@@ -8,10 +8,15 @@
       >
       <link rel="stylesheet" href="style.css">
       <link 
+        rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      >
+      <link 
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
         rel="stylesheet" 
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
-        crossorigin="anonymous">
+        crossorigin="anonymous"
+      >
       <title>Garage platform A - Status</title>
   </head>
   <body>
@@ -21,31 +26,43 @@
       </nav>
     </header>
 
-    <div class="d-flex flex-column vh-100">
-      <div class="d-flex flex-grow-1" id="sidebar">
-        <div class="bg-light border-end p-3 flex-shrink-0" style="width: 280px;">
-          <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-              <a href="#" class="nav-link active" aria-current="page">Overview (Dashboard)</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link link-dark">Camera Views</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link link-dark">Pricing Settings</a>
-            </li>
-          </ul>
-        </div>
+    <div class="d-flex flex-row" style="height: calc(100vh - 56px);">
+      <div class="d-flex flex-column h-100 flex-shrink-0 bg-light border-end" id="sidebar">
+        <ul class="nav nav-pills flex-column mb-auto p-3 alignment-responsive">
+          
+          <li class="nav-item">
+            <a href="#" class="nav-link active d-flex align-items-center justify-content-md-start justify-content-center" aria-label="Overview">
+              <i class="bi bi-speedometer2 fs-4 me-0 me-md-2"></i>
+              <span class="d-none d-md-inline">Overview (Dashboard)</span>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a href="#" class="nav-link link-dark d-flex align-items-center justify-content-md-start justify-content-center" aria-label="Camera Views">
+              <i class="bi bi-camera-video fs-4 me-0 me-md-2"></i>
+              <span class="d-none d-md-inline">Camera Views</span>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a href="#" class="nav-link link-dark d-flex align-items-center justify-content-md-start justify-content-center" aria-label="Pricing Settings">
+              <i class="bi bi-currency-dollar fs-4 me-0 me-md-2"></i>
+              <span class="d-none d-md-inline">Pricing Settings</span>
+            </a>
+          </li>
+
+        </ul>
       </div>
 
-      <main id="content-area">
-        
-      </main>
+      <div class="flex-grow-1 bg-white h-100 position-relative">
+        <h1 class="p-2" id="page-title">Garage platform A - Status</h1>
+
+        <footer class="position-absolute bottom-0 w-100 border-top text-center text-muted text-bg-dark text-white p-2">
+          <small>© 2026 SmartParking AB - Internal control</small>
+        </footer>
+      </div>
     </div>
 
-    <!-- <footer id="">
-        <p></p>
-    </footer> -->
     <script 
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
