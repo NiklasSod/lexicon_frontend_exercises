@@ -20,46 +20,71 @@
       <title>Garage platform A - Status</title>
   </head>
   <body>
-    <header id="header-section">
-      <nav class="navbar navbar-dark bg-dark px-3">
-        <span class="navbar-brand mb-0 p ps-2">SmartParking Admin</span>
-      </nav>
-    </header>
+    <div class="container-fluid p-0 m-0">
+      <header id="header-section">
+        <div class="navbar navbar-dark bg-dark px-3">
+          <span class="navbar-brand mb-0 p ps-2">SmartParking Admin</span>
+        </div>
+      </header>
 
-    <div class="d-flex flex-row" style="height: calc(100vh - 56px);">
-      <div class="d-flex flex-column h-100 flex-shrink-0 bg-light border-end" id="sidebar">
-        <ul class="nav nav-pills flex-column mb-auto p-3 alignment-responsive">
-          
-          <li class="nav-item">
-            <a href="#" class="nav-link active d-flex align-items-center justify-content-md-start justify-content-center" aria-label="Overview">
-              <i class="bi bi-speedometer2 fs-4 me-0 me-md-2"></i>
-              <span class="d-none d-md-inline">Overview (Dashboard)</span>
-            </a>
-          </li>
-          
-          <li class="nav-item">
-            <a href="#" class="nav-link link-dark d-flex align-items-center justify-content-md-start justify-content-center" aria-label="Camera Views">
-              <i class="bi bi-camera-video fs-4 me-0 me-md-2"></i>
-              <span class="d-none d-md-inline">Camera Views</span>
-            </a>
-          </li>
-          
-          <li class="nav-item">
-            <a href="#" class="nav-link link-dark d-flex align-items-center justify-content-md-start justify-content-center" aria-label="Pricing Settings">
-              <i class="bi bi-currency-dollar fs-4 me-0 me-md-2"></i>
-              <span class="d-none d-md-inline">Pricing Settings</span>
-            </a>
-          </li>
+      <div class="d-flex flex-row" style="height: calc(100vh - 56px);">
+        <nav class="d-flex flex-column h-100 flex-shrink-0 bg-light border-end" id="sidebar">
+          <ul class="nav nav-pills flex-column mb-auto p-3 alignment-responsive">
+            
+            <li class="nav-item">
+              <a href="#" class="nav-link active d-flex align-items-center justify-content-md-start justify-content-center" aria-label="Overview">
+                <i class="bi bi-speedometer2 fs-4 me-0 me-md-2"></i>
+                <span class="d-none d-md-inline">Overview (Dashboard)</span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a href="#" class="nav-link link-dark d-flex align-items-center justify-content-md-start justify-content-center" aria-label="Camera Views">
+                <i class="bi bi-camera-video fs-4 me-0 me-md-2"></i>
+                <span class="d-none d-md-inline">Camera Views</span>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a href="#" class="nav-link link-dark d-flex align-items-center justify-content-md-start justify-content-center" aria-label="Pricing Settings">
+                <i class="bi bi-currency-dollar fs-4 me-0 me-md-2"></i>
+                <span class="d-none d-md-inline">Pricing Settings</span>
+              </a>
+            </li>
 
-        </ul>
-      </div>
+          </ul>
+        </nav>
 
-      <div class="flex-grow-1 bg-white h-100 position-relative">
-        <h1 class="p-2" id="page-title">Garage platform A - Status</h1>
+        <main class="flex-grow-1 bg-white h-100 position-relative">
+          <h1 class="p-2" id="page-title">Garage platform A - Status</h1>
 
-        <footer class="position-absolute bottom-0 w-100 border-top text-center text-muted text-bg-dark text-white p-2">
-          <small>© 2026 SmartParking AB - Internal control</small>
-        </footer>
+          <div class="row g-3">
+            <div class="col-12 col-md-4">
+              <div class="card p-3 shadow-sm">
+                <h5>Revenue today</h5>
+                <p class="display-6">$450</p>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <div class="card p-3 shadow-sm">
+                <h5>Current occupancy</h5>
+                <p class="display-6">87%</p>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <div class="card p-3 shadow-sm">
+                <h5>Faulty parking spot</h5>
+                <p class="display-6">1 st</p>
+              </div>
+            </div>
+          </div>
+
+          <footer class="position-absolute bottom-0 w-100 border-top text-center text-muted text-bg-dark text-white p-2">
+            <small>© 2026 SmartParking AB - Internal control</small>
+          </footer>
+        </main>
       </div>
     </div>
 
