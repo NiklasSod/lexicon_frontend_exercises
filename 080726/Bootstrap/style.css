@@ -3,11 +3,11 @@
 }
 
 #sidebar {
-  width: 240px;
+  width: 200px;
   transition: width 0.2s ease-in-out;
 }
 
-#sidebar-icon {
+.sidebar-icon {
   display: none;
 }
 
@@ -74,7 +74,7 @@
   #sidebar {
     width: 4.5rem;
   }
-  #sidebar-icon {
+  .sidebar-icon {
     display: inline-block;
   }
 }

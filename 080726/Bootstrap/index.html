@@ -33,34 +33,34 @@
 
         <!-- SIDEBAR -->
         <nav class="d-flex flex-column flex-shrink-0 bg-light border-end" style="min-height: calc(100vh - 56px);" id="sidebar">
-          <ul class="nav nav-pills flex-column mb-auto p-3 alignment-responsive">
+          <ul class="nav flex-column">
             
             <li class="nav-item">
-              <a href="#" class="nav-link active d-flex align-items-center justify-content-md-start justify-content-center" aria-label="Overview">
-                <i class="bi bi-speedometer2 fs-4 me-0 me-md-2" id="sidebar-icon"></i>
+              <button onclick="showOverview(this)" class="nav-link active d-flex align-items-center justify-content-md-start justify-content-center w-100 border-0 bg-transparent" aria-label="Overview">
+                <i class="bi bi-speedometer2 fs-4 me-0 me-md-2 sidebar-icon"></i>
                 <span class="d-none d-md-inline">Overview (Dashboard)</span>
-              </a>
+              </button>
             </li>
             
             <li class="nav-item">
-              <a href="#" class="nav-link link-dark d-flex align-items-center justify-content-md-start justify-content-center" aria-label="Camera Views">
-                <i class="bi bi-camera-video fs-4 me-0 me-md-2" id="sidebar-icon"></i>
+              <button onclick="showCameraViews(this)" class="nav-link link-dark d-flex align-items-center justify-content-md-start justify-content-center w-100 border-0 bg-transparent" aria-label="Camera Views">
+                <i class="bi bi-camera-video fs-4 me-0 me-md-2 sidebar-icon"></i>
                 <span class="d-none d-md-inline">Camera Views</span>
-              </a>
+              </button>
             </li>
             
             <li class="nav-item">
-              <a href="#" class="nav-link link-dark d-flex align-items-center justify-content-md-start justify-content-center" aria-label="Pricing Settings">
-                <i class="bi bi-currency-dollar fs-4 me-0 me-md-2" id="sidebar-icon"></i>
+              <button  onclick="showPricingSettings(this)" class="nav-link link-dark d-flex align-items-center justify-content-md-start justify-content-center w-100 border-0 bg-transparent" aria-label="Pricing Settings">
+                <i class="bi bi-currency-dollar fs-4 me-0 me-md-2 sidebar-icon"></i>
                 <span class="d-none d-md-inline">Pricing Settings</span>
-              </a>
+              </button>
             </li>
 
           </ul>
         </nav>
 
         <!-- MAIN -->
-        <main class="d-flex flex-column flex-grow-1 p-3 pb-0" style="background-color: rgb(245, 244, 244);">
+        <main id="main-content" class="d-flex flex-column flex-grow-1 p-3 pb-0" style="background-color: rgb(245, 244, 244);">
           <h1 class="p-0 m-0 pb-2" id="page-title">Garage platform A - Status</h1>
 
           <!-- CARD ROW -->

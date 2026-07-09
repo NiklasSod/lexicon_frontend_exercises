@@ -57,3 +57,33 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+function setActiveSidebarLink(clickedElement) {
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    link.classList.add('link-dark');
+  });
+  
+  clickedElement.classList.add('active');
+  clickedElement.classList.remove('link-dark');
+}
+
+function showOverview(element) {
+  window.location.reload(); // CHEATING :)
+}
+
+function showCameraViews() {
+  const mainContent = document.getElementById('main-content');
+  if (mainContent) {
+    mainContent.innerHTML = '<h1 class="p-0 m-0 pb-2" id="page-title">Garage platform A - Camera Views - Under construction</h1>';
+  }
+}
+
+function showPricingSettings() {
+  const mainContent = document.getElementById('main-content');
+  if (mainContent) {
+    mainContent.innerHTML = '<h1 class="p-0 m-0 pb-2" id="page-title">Garage platform A - Pricing Settings - Under construction</h1>';
+  }
+}
