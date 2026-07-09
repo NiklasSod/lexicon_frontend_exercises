@@ -60,36 +60,36 @@
         </nav>
 
         <!-- MAIN -->
-        <main class="d-flex flex-column flex-grow-1 p-3" style="background-color: rgb(245, 244, 244);">
+        <main class="d-flex flex-column flex-grow-1 p-3 pb-0" style="background-color: rgb(245, 244, 244);">
           <h1 class="p-0 m-0 pb-2" id="page-title">Garage platform A - Status</h1>
 
           <!-- CARD ROW -->
           <div class="row g-3 mt-1">
             <div class="col-12 col-md-4">
-              <div class="card border-0 border-bottom border-secondary-subtle shadow-sm h-100 position-relative overflow-hidden">
+              <div class="card border-0 border-bottom border-secondary-subtle shadow-sm h-100">
                 <div class="card border-0 border-start border-success border-4 shadow-sm p-3 h-100">
                   <small class="text-muted text-uppercase fw-bold text-xs" id="card-text">Revenue today</small>
-                  <h2 class="mb-0" id="card-value">$450</h2>
+                  <h2 class="mb-0 info-card-value">$450</h2>
                 </div>
               </div>
             </div>
 
             <div class="col-12 col-md-4">
-              <div class="card border-0 border-bottom border-secondary-subtle shadow-sm h-100 position-relative overflow-hidden">
+              <div class="card border-0 border-bottom border-secondary-subtle shadow-sm h-100">
                 <div class="card border-0 border-start border-primary border-4 shadow-sm p-3 h-100">
                   <small class="text-muted text-uppercase fw-bold text-xs" id="card-text">Current occupancy</small>
-                  <h2 class="mb-0" id="card-value">87%</h2>
+                  <h2 class="mb-0 info-card-value">87%</h2>
                 </div>
               </div>
             </div>
 
             <div class="col-12 col-md-4">
-              <div class="card border-0 border-bottom border-secondary-subtle shadow-sm h-100 position-relative overflow-hidden">
+              <div class="card border-0 border-bottom border-secondary-subtle shadow-sm h-100">
                 <div class="card border-0 border-start border-danger border-4 shadow-sm p-3 h-100">
                   <small class="text-muted text-uppercase fw-bold text-xs" id="card-text">Faulty parking spot</small>
                   <div class="d-flex justify-content-between align-items-center">
-                    <h2 class="mb-0" id="card-value">3</h2>
-                    <button class="badge animate-blink" id="btn-action-required" aria-label="Action required">Action required</button>
+                    <h2 class="mb-0 info-card-value" id="error-amount">3</h2>
+                    <button class="badge animate-blink" id="btn-action-required" tabindex="-1" aria-label="Action required">Action required</button>
                   </div>
                 </div>
               </div>
@@ -97,7 +97,7 @@
           </div>
 
           <h2 id="h2-heading">Latest reports</h2>
-
+          
           <!-- TABLE -->
           <div class="card shadow-sm p-3 border-0">
             <table class="table table-striped table-hover align-middle">
@@ -146,19 +146,84 @@
 
           <!-- PARKING SPOT ERROR -->
           <h2 id="h2-heading">Current fault reports</h2>
+          <div class="d-flex flex-column gap-1 mx-0">
+
+            <div id="spot-14" class="bg-white border rounded m-0 p-2 d-flex justify-content-between align-items-center shadow-sm">
+              <p class=" m-0" tabindex="0" aria-label="Spot 14: Charging station out of order (short circuit).">
+                <strong class="text-danger">Spot 14:</strong> Charging station out of order (short circuit).
+              </p>
+              <button type="button" class="btn btn-sm btn-danger spot-modal-trigger" data-bs-toggle="modal" 
+                data-bs-target="#dynamicLeakModal" 
+                aria-label="Resolve issue for Spot 14"
+                data-spot="Spot 14" 
+                data-desc="Charging station out of order (short circuit).">
+                  Mark as resolved
+              </button>
+            </div>
+
+            <div id="spot-02" class="bg-white border rounded m-0 p-2 d-flex justify-content-between align-items-center shadow-sm">
+              <p class=" m-0" tabindex="0" aria-label="Spot 02: Water leak from the roof / burst pipe.">
+                <strong class="text-danger">Spot 02:</strong> Water leak from the roof / burst pipe.
+              </p>
+              <button type="button" class="btn btn-sm btn-danger spot-modal-trigger" data-bs-toggle="modal" 
+                data-bs-target="#dynamicLeakModal" 
+                aria-label="Resolve issue for Spot 02"
+                data-spot="Spot 02" 
+                data-desc="Water leak from the roof / burst pipe.">
+                  Mark as resolved
+              </button>
+            </div>
+
+            <div id="spot-17" class="bg-white border rounded m-0 p-2 d-flex justify-content-between align-items-center shadow-sm">
+              <p class=" m-0" tabindex="0" aria-label="Spot 17: Oil spill on the floor (slip hazard).">
+                <strong class="text-danger">Spot 17:</strong> Oil spill on the floor (slip hazard).
+              </p>
+              <button type="button" class="btn btn-sm btn-danger spot-modal-trigger" data-bs-toggle="modal" 
+                data-bs-target="#dynamicLeakModal" 
+                aria-label="Resolve issue for Spot 17"
+                data-spot="Spot 17" 
+                data-desc="Oil spill on the floor (slip hazard).">
+                  Mark as resolved
+              </button>
+            </div>
+        
+          </div>
 
           <!-- FOOTER -->
-          <footer class="mt-auto w-100 border-top text-center text-bg-dark text-white p-2">
+          <footer class="mt-1 w-100 border-top text-center text-bg-dark text-white p-2">
             <small>© 2026 SmartParking AB - Internal control</small>
           </footer>
         </main>
       </div>
     </div>
 
+    <!-- MODAL -->
+     <div class="modal fade" id="dynamicLeakModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Resolve Issue</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="m-0">
+                <strong class="text-danger" id="modalSpotLabel">Spot --:</strong> 
+                <span id="modalSpotDescription">Loading...</span>
+              </p>
+              <button type="button" class="btn btn-sm btn-danger" id="confirmResolveBtn" data-bs-dismiss="modal" aria-label="Mark issue as resolved">
+                Mark as resolved
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script 
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
-      crossorigin="anonymous" />
-    // <script src="script.js" />
+      crossorigin="anonymous"></script>
+    <script src="script.js"></script>
   </body>
 </html>
