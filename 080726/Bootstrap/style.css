@@ -33,6 +33,13 @@
   padding: 0.3rem 1rem;
 }
 
+#h2-heading {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 1rem 0;
+}
+
 #btn-action-required {
   font-size: 0.75rem;
   padding: 0.2rem 0.3rem;
