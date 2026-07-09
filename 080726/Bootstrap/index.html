@@ -24,7 +24,7 @@
     <!-- HEADER -->
     <header id="header-section">
       <div class="navbar navbar-dark bg-dark px-3">
-        <span class="navbar-brand mb-0 p ps-2">SmartParking Admin</span>
+        <span class="navbar-brand mb-0 ps-2">SmartParking Admin</span>
       </div>
     </header>
 
@@ -60,11 +60,11 @@
         </nav>
 
         <!-- MAIN -->
-        <main class="d-flex flex-column flex-grow-1 bg-white">
-          <h1 class="p-2" id="page-title">Garage platform A - Status</h1>
+        <main class="d-flex flex-column flex-grow-1 p-3" style="background-color: rgb(245, 244, 244);">
+          <h1 class="p-0 pb-2" id="page-title">Garage platform A - Status</h1>
 
           <!-- CARD ROW -->
-          <div class="row g-3 mx-0 mt-1">
+          <div class="row g-3 mt-1">
             <div class="col-12 col-md-4">
               <div class="card border-0 border-bottom border-secondary-subtle shadow-sm h-100 position-relative overflow-hidden">
                 <div class="card border-0 border-start border-success border-4 shadow-sm p-3 h-100">
@@ -88,12 +88,16 @@
                 <div class="card border-0 border-start border-danger border-4 shadow-sm p-3 h-100">
                   <small class="text-muted text-uppercase fw-bold text-xs" id="card-text">Faulty parking spot</small>
                   <div class="d-flex justify-content-between align-items-center">
-                    <h2 class="mb-0" id="card-value">1 st</h2>
+                    <h2 class="mb-0" id="card-value">3</h2>
                     <button class="badge animate-blink" id="btn-action-required" aria-label="Action required">Action required</button>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="g-3 mx-0 mt-1">
+            <h2 id="error-heading">Latest reports</h2>
           </div>
 
           <!-- TABLE -->
@@ -141,6 +145,9 @@
               </tbody>
             </table>
           </div>
+
+          <!-- PARKING SPOT ERROR -->
+          <h2 id="error-heading">Current fault reports</h2>
 
           <!-- FOOTER -->
           <footer class="mt-auto w-100 border-top text-center text-bg-dark text-white p-2">
