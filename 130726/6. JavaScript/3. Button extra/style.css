@@ -1,0 +1,37 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  gap: 3rem;
+  margin-right: 10rem;;
+}
+
+.button {
+  background-color: chocolate;
+  color: white;
+  padding: 1rem 1.5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  max-height: 3rem;
+}
+
+#product-list {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  list-style-type: none;
+}
+
+.product {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.remove-btn {
+  /*  */
+}
