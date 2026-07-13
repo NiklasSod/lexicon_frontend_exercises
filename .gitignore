@@ -1,0 +1,4 @@
+node_modules/
+
+# Ignore Tailwind build output
+090726/Tailwind/dist/
