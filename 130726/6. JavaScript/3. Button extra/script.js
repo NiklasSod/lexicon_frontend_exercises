@@ -36,10 +36,20 @@ productsButton.addEventListener("click", function() {
       <div class="product">
         <span class="product-name">Product: ${p.namn}</span>
         <span class="product-price">$${Math.floor(p.pris / 10)}.9</span>
-        <button class="remove-btn">Remove item</button>
+        <button class="remove-btn" id="remove-btn">Remove item</button>
       </div>
     `;
     
     listElement.appendChild(productListItem);
   })
 });
+
+listElement.addEventListener("click", function(e) {
+  if (e.target && e.target.classList.contains("remove-btn")){
+    const rowToDelete = e.target.closest("li");
+    
+    if (rowToDelete) {
+      rowToDelete.remove();
+    }
+  }
+})
