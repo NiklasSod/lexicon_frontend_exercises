@@ -102,6 +102,3 @@ export async function deleteCar(e: PointerEvent): Promise<void> {
     console.error('Något gick fel:', error);
   }
 }
-
-document.querySelector<HTMLButtonElement>('#init-cars')?.addEventListener('click', initCars);
-document.querySelector<HTMLButtonElement>('#add-car')?.addEventListener('click', addCar);
