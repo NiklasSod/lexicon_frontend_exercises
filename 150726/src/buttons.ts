@@ -6,6 +6,22 @@ interface Car {
   color: string;
 }
 
+const modal = document.getElementById("modal");
+const openModalBtn = document.getElementById('add-car');
+const closeModal = document.getElementById('close-modal');
+
+closeModal?.addEventListener('click', () => {
+  modal?.classList.remove('show-modal');
+  openModalBtn?.focus();
+});
+
+window.addEventListener("keydown", (event: KeyboardEvent) => {
+    if (event.key === "Escape" && modal && modal.classList.contains("show-modal")) {
+      modal.classList.remove("show-modal");
+      openModalBtn?.focus();
+    }
+});
+
 export async function initCars(): Promise<void> {
   try {
     const tableBody = document.getElementById('car-table-body') as HTMLTableSectionElement | null;
@@ -66,8 +82,15 @@ export async function initCars(): Promise<void> {
 }
 
 export async function addCar(): Promise<void> {
- // add car
- console.log('adding car...');
+  try {
+    openModalBtn?.addEventListener("click", function() {
+      modal?.classList.add("show-modal");
+      closeModal?.focus();
+      // do more
+    })
+  } catch (error) {
+    
+  }
 }
 
 export async function editCar(e: PointerEvent): Promise<void> {

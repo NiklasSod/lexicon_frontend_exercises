@@ -4,3 +4,10 @@
     box-sizing: border-box;
 }
 
+#modal {
+  display: none;
+}
+
+#modal.show-modal {
+  display: flex;
+}
