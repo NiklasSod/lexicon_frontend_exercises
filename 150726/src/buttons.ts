@@ -13,9 +13,6 @@ function addCarRow(cars: Car[], carId?: number): void {
     return;
   }
 
-  console.log(cars)
-  console.log(carId)
-
   cars.forEach(car => {
     const row = document.createElement('tr');
         row.className = 'hover:bg-gray-50 border-b border-gray-200 transition-colors duration-150';
@@ -55,8 +52,13 @@ const modal = document.getElementById("modal");
 const openModalBtn = document.getElementById('add-car') as HTMLButtonElement | null;
 const closeModal = document.getElementById('close-modal') as HTMLButtonElement | null;
 const carForm = document.getElementById("car-form") as HTMLFormElement | null;
+const modalTitle = document.querySelector('#modal h3') as HTMLHeadingElement | null;
+
+let editingCarId: number | null = null;
+let editingRow: HTMLTableRowElement | null = null;
 
 openModalBtn?.addEventListener("click", function() {
+    resetModalState();
     modal?.classList.add("show-modal");
     closeModal?.focus();
   });
@@ -72,17 +74,31 @@ carForm?.addEventListener("submit", async (e: SubmitEvent) => {
     year: Number(formData.get("car-year")),
     color: formData.get("car-color") as string,
   };
-  addCar(car);
+
+  if (editingCarId !== null && editingRow) {
+    await updateCar(car, editingCarId, editingRow);
+  } else {
+    await addCar(car);
+  }
 })
+
+function resetModalState(): void {
+  editingCarId = null;
+  editingRow = null;
+  if (modalTitle) modalTitle.textContent = 'Add a new car';
+  carForm?.reset();
+}
 
 closeModal?.addEventListener('click', () => {
   modal?.classList.remove('show-modal');
+  resetModalState();
   openModalBtn?.focus();
 });
 
 window.addEventListener("keydown", (event: KeyboardEvent) => {
     if (event.key === "Escape" && modal && modal.classList.contains("show-modal")) {
       modal.classList.remove("show-modal");
+      resetModalState();
       openModalBtn?.focus();
     }
 });
@@ -129,7 +145,6 @@ export async function addCar(car: Car): Promise<void> {
     }
 
     const savedCar = await response.json();
-    console.log(savedCar);
 
     addCarRow([car], savedCar.id);
     modal?.classList.remove("show-modal");
@@ -140,8 +155,63 @@ export async function addCar(car: Car): Promise<void> {
 }
 
 export async function editCar(e: PointerEvent): Promise<void> {
- // edit car
- console.log('editing car...');
+  const button = e.currentTarget as HTMLButtonElement;
+  if (!button) return;
+
+  const carId = button.getAttribute('data-id');
+  if (!carId) return;
+
+  const row = button.closest('tr');
+  if (!row) return;
+
+  const cells = row.querySelectorAll('td');
+
+  const brandInput = document.querySelector<HTMLInputElement>('input[name="car-brand"]');
+  const modelInput = document.querySelector<HTMLInputElement>('input[name="car-model"]');
+  const yearInput = document.querySelector<HTMLInputElement>('input[name="car-year"]');
+  const colorInput = document.querySelector<HTMLInputElement>('input[name="car-color"]');
+
+  if (brandInput) brandInput.value = cells[0]?.textContent?.trim() || '';
+  if (modelInput) modelInput.value = cells[1]?.textContent?.trim() || '';
+  if (yearInput) yearInput.value = cells[2]?.textContent?.trim() || '';
+  if (colorInput) colorInput.value = cells[3]?.textContent?.trim() || '';
+
+  editingCarId = Number(carId);
+  editingRow = row;
+
+  if (modalTitle) modalTitle.textContent = 'Edit car';
+
+  modal?.classList.add('show-modal');
+  closeModal?.focus();
+}
+
+export async function updateCar(car: Car, carId: number, row: HTMLTableRowElement): Promise<void> {
+  try {
+    const response = await fetch(`https://localhost:7063/api/cars/${carId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(car)
+    });
+
+    if (!response.ok) {
+      throw new Error(`Kunde inte uppdatera bilen. Status: ${response.status}`);
+    }
+
+    const cells = row.querySelectorAll('td');
+    cells[0].textContent = car.brand;
+    cells[1].textContent = car.model;
+    cells[2].textContent = car.year.toString();
+    cells[3].textContent = car.color;
+
+    resetModalState();
+    modal?.classList.remove('show-modal');
+    openModalBtn?.focus();
+
+  } catch (error) {
+    console.error('Något gick fel:', error);
+  }
 }
 
 export async function deleteCar(e: PointerEvent): Promise<void> {
