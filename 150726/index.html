@@ -43,21 +43,21 @@
                         <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Change</th>
                     </tr>
                 </thead>
-                <tbody id="car-table-body" class="bg-white divide-y divide-gray-200">
+                <tbody id="car-table-body" class="bg-white divide-y divide-gray-200" aria-live="polite" aria-label="Car list">
                 </tbody>
             </table>
         </div>
 
         <!-- MODAL ADD / EDIT -->
-         <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+         <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
           
           <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
 
           <div class="relative w-full max-w-md p-6 mx-4 bg-white rounded-xl shadow-xl transition-all transform">
             
             <div class="flex items-center justify-between mb-6">
-              <h3 class="text-xl font-semibold text-slate-800">Add a new car</h3>
-              <button id="close-modal" class="text-slate-400 hover:text-slate-600 transition-colors">
+              <h3 id="modal-title" class="text-xl font-semibold text-slate-800">Add a new car</h3>
+              <button id="close-modal" class="text-slate-400 hover:text-slate-600 transition-colors" aria-label="Close modal">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -66,26 +66,26 @@
 
             <form class="space-y-4" id="car-form">
               <div>
-                <label class="block mb-1 text-sm font-medium text-slate-700">Brand</label>
-                <input type="text" placeholder="Car brand" name="car-brand"
+                <label for="car-brand" class="block mb-1 text-sm font-medium text-slate-700">Car Brand</label>
+                <input id="car-brand" type="text" placeholder="Car brand" name="car-brand" required
                       class="w-full px-3 py-2 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm">
               </div>
 
               <div>
-                <label class="block mb-1 text-sm font-medium text-slate-700">Model</label>
-                <input type="text" placeholder="Car model" name="car-model"
+                <label for="car-model" class="block mb-1 text-sm font-medium text-slate-700">Car Model</label>
+                <input id="car-model" type="text" placeholder="Car model" name="car-model" required
                       class="w-full px-3 py-2 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm">
               </div>
 
               <div>
-                <label class="block mb-1 text-sm font-medium text-slate-700">Year</label>
-                <input type="number" placeholder="Car year" name="car-year"
+                <label for="car-year" class="block mb-1 text-sm font-medium text-slate-700">Car Year</label>
+                <input id="car-year" type="number" placeholder="Car year" name="car-year" required
                       class="w-full px-3 py-2 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm">
               </div>
 
               <div>
-                <label class="block mb-1 text-sm font-medium text-slate-700">Color</label>
-                <input type="text" placeholder="Car color" name="car-color"
+                <label for="car-color" class="block mb-1 text-sm font-medium text-slate-700">Car Color</label>
+                <input id="car-color" type="text" placeholder="Car color" name="car-color" required
                       class="w-full px-3 py-2 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm">
               </div>
 

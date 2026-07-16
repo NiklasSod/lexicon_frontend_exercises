@@ -17,6 +17,8 @@ function addCarRow(cars: Car[], carId?: number): void {
     const row = document.createElement('tr');
         row.className = 'hover:bg-gray-50 border-b border-gray-200 transition-colors duration-150';
 
+        const carLabel = `${car.brand} ${car.model}`;
+
         row.innerHTML = `
           <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900">${car.brand}</td>
           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">${car.model}</td>
@@ -26,12 +28,14 @@ function addCarRow(cars: Car[], carId?: number): void {
             <div class="flex gap-2 justify-end sm:justify-start">
               <button 
                 class="edit-btn text-blue-600 hover:text-blue-900 focus:outline-none focus:underline"
-                data-id="${carId ?? car.id}">
+                data-id="${carId ?? car.id}"
+                aria-label="Edit ${carLabel}">
                 Redigera
               </button>
               <button 
                 class="delete-btn text-red-600 hover:text-red-900 focus:outline-none focus:underline"
-                data-id="${carId ?? car.id}">
+                data-id="${carId ?? car.id}"
+                aria-label="Delete ${carLabel}">
                 Ta bort
               </button>
             </div>
