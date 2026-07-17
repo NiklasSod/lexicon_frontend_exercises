@@ -1,12 +1,9 @@
-interface Car {
-  id?: number;
-  brand: string;
-  model: string;
-  year: number;
-  color: string;
-}
+import type { Car } from './interface/Car';
+import { addCar } from './fetch-function/addCar';
+import { updateCar } from './fetch-function/updateCar';
+import { deleteCar } from './fetch-function/deleteCar';
 
-function addCarRow(cars: Car[], carId?: number): void {
+export function addCarRow(cars: Car[], carId?: number): void {
   const tableBody = document.getElementById('car-table-body') as HTMLTableSectionElement | null;
   if (!tableBody) {
     console.error('Kunde inte hitta tabellelementet');
@@ -43,7 +40,7 @@ function addCarRow(cars: Car[], carId?: number): void {
         `;
 
         const editBtn = row.querySelector('.edit-btn') as HTMLButtonElement;
-        editBtn.addEventListener('click', (e) => editCar(e));
+        editBtn.addEventListener('click', (e) => editCarButton(e));
 
         const deleteBtn = row.querySelector('.delete-btn') as HTMLButtonElement;
         deleteBtn.addEventListener('click', (e) => deleteCar(e));
@@ -86,7 +83,7 @@ carForm?.addEventListener("submit", async (e: SubmitEvent) => {
   }
 })
 
-function resetModalState(): void {
+export function resetModalState(): void {
   editingCarId = null;
   editingRow = null;
   if (modalTitle) modalTitle.textContent = 'Add a new car';
@@ -107,58 +104,7 @@ window.addEventListener("keydown", (event: KeyboardEvent) => {
     }
 });
 
-export async function initCars(): Promise<void> {
-  try {
-    const tableBody = document.getElementById('car-table-body') as HTMLTableSectionElement | null;
-    if (!tableBody) {
-      console.error('Kunde inte hitta tabellelementet');
-      return;
-    }
-
-    const response = await fetch('https://localhost:7063/api/cars');
-
-    if (!response.ok) {
-      throw new Error(`Error. Status: ${response.status}`);
-    }
-    const tempText = document.getElementById("temp-text") as HTMLParagraphElement | null;
-    if (tempText){
-      tempText.remove();
-    }
-    const cars: Car[] = await response.json();
-    tableBody.innerHTML = '';
-
-    addCarRow(cars);
-
-  } catch (error) {
-    console.error('Kunde inte hämta bilar:', error);
-  }
-}
-
-export async function addCar(car: Car): Promise<void> {
-  try {
-    const response = await fetch('https://localhost:7063/api/cars', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(car) 
-    });
-
-    if (!response.ok) {
-      throw new Error(`Kunde inte lägga till bil. Status: ${response.status}`);
-    }
-
-    const savedCar = await response.json();
-
-    addCarRow([car], savedCar.id);
-    modal?.classList.remove("show-modal");
-
-  } catch (error) {
-    console.error('Något gick fel:', error);
-  }
-}
-
-export async function editCar(e: PointerEvent): Promise<void> {
+export async function editCarButton(e: PointerEvent): Promise<void> {
   const button = e.currentTarget as HTMLButtonElement;
   if (!button) return;
 
@@ -189,59 +135,3 @@ export async function editCar(e: PointerEvent): Promise<void> {
   closeModal?.focus();
 }
 
-export async function updateCar(car: Car, carId: number, row: HTMLTableRowElement): Promise<void> {
-  try {
-    const response = await fetch(`https://localhost:7063/api/cars/${carId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(car)
-    });
-
-    if (!response.ok) {
-      throw new Error(`Kunde inte uppdatera bilen. Status: ${response.status}`);
-    }
-
-    const cells = row.querySelectorAll('td');
-    cells[0].textContent = car.brand;
-    cells[1].textContent = car.model;
-    cells[2].textContent = car.year.toString();
-    cells[3].textContent = car.color;
-
-    resetModalState();
-    modal?.classList.remove('show-modal');
-    openModalBtn?.focus();
-
-  } catch (error) {
-    console.error('Något gick fel:', error);
-  }
-}
-
-export async function deleteCar(e: PointerEvent): Promise<void> {
-  try {
-    const button = e.currentTarget as HTMLButtonElement;
-    if (!button) return;
-    const carId = button.getAttribute('data-id');
-
-    const row = button.closest('tr');
-    if (!row) {
-      console.warn('Rad ej funnen.');
-      return;
-    }
-
-    if (carId) {
-      const response = await fetch(`https://localhost:7063/api/cars/${carId}`, {
-        method: 'DELETE'
-      });
-
-      if (!response.ok) {
-        throw new Error(`Kunde inte radera bilen. Status: ${response.status}`);
-      }
-      row.remove();
-    }
-
-  } catch (error) {
-    console.error('Något gick fel:', error);
-  }
-}
